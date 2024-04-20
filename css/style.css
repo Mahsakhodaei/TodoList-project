@@ -1,0 +1,158 @@
+/* ------------------- Normalize Css -----------------*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/*------------------- Root variable ------------------- */
+:root {
+  --bg-color: #121215;
+  --primary: #8d8fd2;
+  --dk-text: #dfe0fb;
+  --dk-subtext: #84849d;
+  --card: #18181c;
+  --component-s: #454254;
+  --component: #2f2d36;
+  --grad-base: rgb(125, 90, 242);
+  --gradient-1: rgb(145, 114, 247);
+  --gradient-2: rgb(104, 61, 247);
+  --cal-indicator: invert(57%) sepia(96%) saturate(184%) hue-rotate(200deg)
+    brightness(85%) contrast(93%);
+}
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 5rem;
+  display: inline;
+  color: var(--dk-text);
+}
+h2 {
+  font-size: 2.3rem;
+}
+.header {
+  padding: 3.7rem 0;
+}
+.primary {
+  color: var(--gradient-2);
+}
+.main {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100vh;
+}
+@media screen and (max-width: 640px) {
+  .main {
+    height: 100%;
+  }
+  .header {
+    padding: 4rem 2rem;
+  }
+}
+/*------------------- container ------------------- */
+.container {
+  max-width: 800px;
+  /* background-color: #ccc; */
+  margin: 0 auto;
+}
+
+/* @media screen and (max-width: 1280px) {
+  .container {
+    max-width: 992px;
+  }
+} */
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 620px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .container {
+    max-width: 100%;
+    /* padding: 0 2rem; */
+  }
+}
+/*------------------- cards ------------------- */
+.cards {
+  display: grid;
+  gap: 3rem;
+  grid-template-areas: "sidebar form";
+  grid-template-columns: 35fr 65fr;
+}
+
+.card {
+  background-color: var(--card);
+  min-height: 450px;
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0px 0px 10px var(--primary);
+}
+.card-sidebar {
+  grid-area: "sidebar";
+}
+.card-tasks {
+  grid-area: "form";
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+}
+.card__title {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+.list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.list-item {
+  text-decoration: none;
+  color: var(--dk-subtext);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.card__form {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 640px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+}
+
+/*------------------- button ------------------- */
+.wrapper-btn {
+  width: 100%;
+  /* background-color: #84849d; */
+  display: flex;
+  justify-content: end;
+}
+.btn {
+  outline: 0;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--dk-text);
+  background-image: linear-gradient(
+    45deg,
+    var(--gradient-1),
+    var(--gradient-2)
+  );
+  font-size: 1.6rem;
+}
