@@ -15,50 +15,45 @@
     />
     <title>TODO list</title>
   </head>
-  <body>
-    <section class="main">
-      <!-- header -->
-      <header class="header container">
-        <h1>to</h1>
-        <h1 class="primary">do.</h1>
-      </header>
-      <!-- main -->
-      <section class="cards container">
-        <!-- sidebar -->
-        <div class="card card-sidebar">
-          <h2 class="card__title">Filters</h2>
 
-          <div class="list-items">
-            <a class="list-item">
-              <i class="fa fa-home" aria-hidden="true"></i>&nbsp; All
-            </a>
-            <a class="list-item">
-              <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;
-              Completed
-            </a>
-            <a class="list-item">
-              <i class="fa fa-square" aria-hidden="true"></i>&nbsp; Uncompleted
-            </a>
-          </div>
-          <a href="https://github.com/Mahsakhodaei">
-            <i class="fa fa-github" aria-hidden="true"></i>
+  <body>
+    <!-- header -->
+    <header class="header container">
+      <h1>to</h1>
+      <h1 class="header__primary">do.</h1>
+    </header>
+    <!-- main -->
+    <section class="cards container">
+      <!-- sidebar -->
+      <div class="card card-sidebar">
+        <h2 class="card--title">Filters</h2>
+        <div class="list-items">
+          <a class="list__item">
+            <i class="fa fa-home" aria-hidden="true"></i>&nbsp; All
+          </a>
+          <a class="list__item">
+            <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;
+            Completed
+          </a>
+          <a class="list__item">
+            <i class="fa fa-square" aria-hidden="true"></i>&nbsp; Uncompleted
           </a>
         </div>
-        <!-- form -->
-        <div class="card card-tasks">
-          <h2 class="card__title title">Tasks</h2>
-          <form class="card__form">
-            <input type="text" class="todo-input" />
-            <button class="btn add-todo" type="submit">
-              <i class="fas fa-plus-circle"></i> Add Task
-            </button>
-          </form>
+      </div>
+      <!-- form -->
+      <div class="card card-tasks">
+        <h2 class="card--title">Tasks</h2>
+        <form class="card__form">
+          <input type="text" class="card__input" />
+          <button class="btn card__add-todo" type="submit">
+            <i class="fas fa-plus-circle"></i> Add Task
+          </button>
+        </form>
 
-          <!-- <div class="wrapper-btn">
-            <button class="btn btn-add-task">Add task</button>
-          </div> -->
+        <div class="card__todo">
+          <ul class="todolist"></ul>
         </div>
-      </section>
+      </div>
     </section>
 
     <script src="./js/todolist.js"></script>
