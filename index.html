@@ -27,17 +27,19 @@
       <!-- sidebar -->
       <div class="card card-sidebar">
         <h2 class="card--title">Filters</h2>
-        <div class="list-items">
-          <a class="list__item">
-            <i class="fa fa-home" aria-hidden="true"></i>&nbsp; All
-          </a>
-          <a class="list__item">
-            <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;
-            Completed
-          </a>
-          <a class="list__item">
-            <i class="fa fa-square" aria-hidden="true"></i>&nbsp; Uncompleted
-          </a>
+
+        <div class="select">
+          <select name="todos" class="filter-todos">
+            <option value="all">
+              <i class="fa fa-home" aria-hidden="true"></i>All
+            </option>
+            <option value="completed">
+              <i class="fa fa-check-square" aria-hidden="true"></i>Completed
+            </option>
+            <option value="uncompleted">
+              <i class="fa fa-square" aria-hidden="true"></i>Uncompleted
+            </option>
+          </select>
         </div>
       </div>
       <!-- form -->
