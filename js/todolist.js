@@ -1,5 +1,6 @@
 // let todos = [];
 let filterValue = "all";
+let editedTodo = {};
 //selecting :
 const cardForm = document.querySelector(".card__form");
 const cardInput = document.querySelector(".card__input");
@@ -8,6 +9,8 @@ const selectfilters = document.querySelector(".filter-todos");
 const backdrop = document.querySelector(".backdrop");
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".close-modal");
+const modalForm = document.querySelector(".modal__form");
+const modalInput = document.querySelector(".modal__input");
 
 // add event :
 
@@ -21,7 +24,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const todos = getAllTodos();
   createdTodos(todos);
 });
-
+modalForm.addEventListener("submit", editTodo);
 //functions :
 
 function addNewTodo(e) {
@@ -72,7 +75,7 @@ function createdTodos(todos) {
   const editBtn = [...document.querySelectorAll(".todo__edit")];
   removeBtn.forEach((btn) => btn.addEventListener("click", removeTodo));
   checkBtn.forEach((btn) => btn.addEventListener("click", checkTodo));
-  editBtn.forEach((btn) => btn.addEventListener("click", editTodo));
+  editBtn.forEach((btn) => btn.addEventListener("click", editTodos));
 }
 
 function filterTodos() {
@@ -100,9 +103,9 @@ function filterTodos() {
 function removeTodo(e) {
   const todos = getAllTodos();
   const todoId = Number(e.target.dataset.todoId);
-  todos = todos.filter((t) => t.id != todoId);
+  const todo = todos.filter((t) => t.id != todoId);
   // createdTodos(todos);
-  saveAllTodos(todos);
+  saveAllTodos(todo);
   filterTodos();
 }
 
@@ -116,16 +119,35 @@ function checkTodo(e) {
   filterTodos();
 }
 
-function editTodo(e) {
+function editTodos(e) {
   const todoId = Number(e.target.dataset.todoId);
   showModal();
+  const todos = getAllTodos();
+  const findTodo = todos.find((t) => t.id === todoId);
+  editedTodo = findTodo;
+  modalInput.value = findTodo.title;
+}
+function editTodo(e) {
+  e.preventDefault();
+  if (!modalInput.value) return null;
+
+  const { id, createdAt, isComplated } = editedTodo;
+  const newTodo = {
+    id: id,
+    createdAt: createdAt,
+    title: modalInput.value,
+    isComplated: isComplated,
+  };
+
+  saveTodo(newTodo);
+  filterTodos();
+  closeModal();
 }
 function closeModal() {
   backdrop.classList.add("hidden");
   modal.classList.add("hidden");
 }
 function showModal() {
-  //backdrop , modal ==> remove hidden class
   backdrop.classList.remove("hidden");
   modal.classList.remove("hidden");
 }
