@@ -138,10 +138,18 @@ function editTodo(e) {
     title: modalInput.value,
     isComplated: isComplated,
   };
+  // const todos = getAllTodos();
+  // const todo = todos.filter((t) => t.id != id);
 
+  removeOldTodo(id);
   saveTodo(newTodo);
-  filterTodos();
   closeModal();
+}
+function removeOldTodo(id) {
+  const todos = getAllTodos();
+  const todo = todos.filter((t) => t.id != id);
+  saveAllTodos(todo);
+  filterTodos();
 }
 function closeModal() {
   backdrop.classList.add("hidden");
