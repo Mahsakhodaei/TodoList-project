@@ -128,7 +128,7 @@ function editTodos(e) {
   modalInput.value = findTodo.title;
 }
 function editTodo(e) {
-  e.preventDefault();
+  // e.preventDefault();
   if (!modalInput.value) return null;
 
   const { id, createdAt, isComplated } = editedTodo;
@@ -138,7 +138,6 @@ function editTodo(e) {
     title: modalInput.value,
     isComplated: isComplated,
   };
-  // const todos = getAllTodos();
   // const todo = todos.filter((t) => t.id != id);
 
   removeOldTodo(id);
